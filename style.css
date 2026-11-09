@@ -71,6 +71,8 @@ a:focus-visible, .chip:focus-visible { outline: 3px solid var(--gold); outline-o
 .surface { position: relative; height: 300px; margin: 10px -16px 0; }
 .surface .props { position: absolute; left: 50%; bottom: var(--tile); width: 1100px; height: 280px; transform: translateX(-50%); }
 .surface .props img { position: absolute; bottom: 0; }
+/* (the scenery is only to look at: it never covers the buttons above it) */
+.surface, .surface * { pointer-events: none; }
 .ground {
   position: absolute; left: 0; right: 0; bottom: 0; height: var(--tile);
   background: url(assets/grass.png) repeat-x left top / var(--tile) var(--tile);
