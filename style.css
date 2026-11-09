@@ -53,7 +53,12 @@ a:focus-visible, .chip:focus-visible { outline: 3px solid var(--gold); outline-o
 }
 .chip.soon { background: linear-gradient(#ffd75e, #f2a51c); }
 .chip:hover { filter: brightness(1.08); }
-.chip img { width: 26px; height: 26px; }
+.chip img, .chip svg { width: 24px; height: 24px; flex: none; }
+.chip.green { background: linear-gradient(#8fe05a, #3f9e22); }
+.chip.small { font-size: 16px; padding: 9px 16px 11px; background: #fff; color: var(--ink); -webkit-text-stroke: 0; box-shadow: 0 4px 0 var(--ink); cursor: default; }
+.chip.small:hover { filter: none; }
+.soon-line { margin: 16px 0 0; }
+.howto { max-width: 40em; margin: 12px auto 0; color: var(--ink); font-size: 14px; opacity: .85; }
 
 .clouds { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 .sky > :not(.clouds) { position: relative; z-index: 1; }
@@ -160,3 +165,9 @@ a:focus-visible, .chip:focus-visible { outline: 3px solid var(--gold); outline-o
   .stage.wide { --s: .58; }
   .surface { --tile: 96px; height: 300px; }
 }
+
+/* contact page */
+.email-big { font: 700 clamp(20px, 3.4vw, 28px)/1.2 var(--display); margin: 18px 0; word-break: break-all; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 22px; }
+button.chip { cursor: pointer; font: 700 19px/1 var(--display); }
+.paper .chip { color: #fff; text-decoration: none; }
