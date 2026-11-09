@@ -1,3 +1,0 @@
-Poppins, by the Indian Type Foundry (https://fonts.google.com/specimen/Poppins).
-Licensed under the SIL Open Font License, Version 1.1: https://openfontlicense.org
-These files are subsets of the original fonts, made for this website.
