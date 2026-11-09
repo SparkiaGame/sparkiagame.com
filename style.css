@@ -57,7 +57,9 @@ a:focus-visible, .chip:focus-visible { outline: 3px solid var(--gold); outline-o
 .chip.green { background: linear-gradient(#8fe05a, #3f9e22); }
 .chip.small { font-size: 16px; padding: 9px 16px 11px; background: #fff; color: var(--ink); -webkit-text-stroke: 0; box-shadow: 0 4px 0 var(--ink); cursor: default; }
 .chip.small:hover { filter: none; }
-.soon-line { margin: 16px 0 0; }
+.soon-line { margin: 16px 0 0; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.chip.small.discord { background: linear-gradient(#7d87f7, #4e5ad8); color: #fff; cursor: pointer; }
+.chip.small.discord:hover { filter: brightness(1.08); }
 
 .clouds { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 .sky > :not(.clouds) { position: relative; z-index: 1; }
