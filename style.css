@@ -58,7 +58,6 @@ a:focus-visible, .chip:focus-visible { outline: 3px solid var(--gold); outline-o
 .chip.small { font-size: 16px; padding: 9px 16px 11px; background: #fff; color: var(--ink); -webkit-text-stroke: 0; box-shadow: 0 4px 0 var(--ink); cursor: default; }
 .chip.small:hover { filter: none; }
 .soon-line { margin: 16px 0 0; }
-.howto { max-width: 40em; margin: 12px auto 0; color: var(--ink); font-size: 14px; opacity: .85; }
 
 .clouds { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 .sky > :not(.clouds) { position: relative; z-index: 1; }
