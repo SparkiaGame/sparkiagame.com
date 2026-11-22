@@ -1,3 +1,19 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "date": "Nov 21",
+      "title": "Version 1.2.0 is here!",
+      "items": [
+        "NEW: Trades now show in chat, so everyone in the realm can see what was swapped.",
+        "NEW: Take out your Wrench to see everything nearby you can wrench.",
+        "NEW: The items you wear now move on player info pages, just like in the menu.",
+        "IMPROVED: Fishing and farming skills have new names: Enlightenment, Midas Touch, Seed Oracle, Time Keeper, Earth's Bloom and Storage Bag.",
+        "IMPROVED: Fishing on mobile: a smaller hook button, and Punch and Jump hide while you fish.",
+        "IMPROVED: The chat is wider, so long messages fit better.",
+        "IMPROVED: Hearts now only show on your Favorite realms, so you can unfavorite them there.",
+        "CHANGED: Weather Machines aren't wrenched anymore. Punch them to switch them on or off.",
+        "FIXED: Text on the Quest Keeper's page no longer glitches."
+      ]
+    }
+  ]
 }
