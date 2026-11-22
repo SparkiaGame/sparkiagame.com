@@ -68,7 +68,8 @@ a:focus-visible, .chip:focus-visible { outline: 3px solid var(--gold); outline-o
 .sun img { position: absolute; left: 50%; top: 50%; width: 128px; height: 128px; transform: translate(-50%, -50%); }
 .sun img.glow { width: 256px; height: 256px; animation: sunglow 4.8s ease-in-out infinite; }
 @keyframes sunglow { 0%, 100% { transform: translate(-50%, -50%) scale(.965); } 50% { transform: translate(-50%, -50%) scale(1.035); } }
-@media (max-width: 700px) { .sun { top: 6px; right: -30px; transform: scale(.6); transform-origin: top right; } }
+@media (max-width: 1300px) { .sun { top: -14px; right: -46px; transform: scale(.6); transform-origin: top right; } }      /* (tucked into the corner, clear of the logo) */
+@media (max-width: 700px) { .sun { top: -20px; right: -60px; transform: scale(.45); } }
 .clouds img { position: absolute; height: auto; left: 0; width: 168px; opacity: .95; animation: drift linear infinite; will-change: transform; }
 .clouds img:nth-child(1) { top: 10%; animation-duration: 48s; animation-delay: -12s; }
 .clouds img:nth-child(2) { top: 26%; width: 135px; animation-duration: 66s; animation-delay: -40s; opacity: .75; }
