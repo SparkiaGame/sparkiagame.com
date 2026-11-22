@@ -42,7 +42,7 @@
   .plus { font: 700 26px/1 var(--display); color: #fff; -webkit-text-stroke: 4px var(--ink); paint-order: stroke fill; margin: 4px 0; }
   .sparks { display: inline-flex; align-items: center; gap: 10px; font: 700 clamp(38px, 10vw, 54px)/1 var(--display); color: var(--gold);
     -webkit-text-stroke: 7px var(--ink); paint-order: stroke fill; text-shadow: 0 5px 0 var(--ink); margin: 4px 0 10px; }
-  .sparks svg { width: .9em; height: .9em; filter: drop-shadow(0 4px 0 var(--ink)); }
+  .sparks .spark { width: .9em; height: .9em; image-rendering: pixelated; filter: drop-shadow(0 4px 0 var(--ink)); }
   .who { margin: 8px 0 18px; color: #cfe6ff; font-weight: 500; }
   .who b { color: #fff; }
   .buy {
@@ -82,7 +82,7 @@
     <div class="title" id="title"></div>
     <div class="pic"><div class="sprite" id="sprite"></div></div>
     <div class="plus" id="plus" hidden>+</div>
-    <div class="sparks"><span id="amount"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffd23f" stroke="#08202d" stroke-width="1.6" stroke-linejoin="round" d="M12 1.5 14.3 9.7 22.5 12 14.3 14.3 12 22.5 9.7 14.3 1.5 12 9.7 9.7Z"/><path fill="#fff6c8" d="M12 7.5 13 11 16.5 12 13 13 12 16.5 11 13 7.5 12 11 11Z"/></svg></div>
+    <div class="sparks"><span id="amount"></span><img class="spark" src="assets/shop/spark.png" alt="" aria-hidden="true"></div>
     <p class="who">For your Sparkia ID <b id="player"></b></p>
     <button class="buy" id="buy" type="button"><span id="buyText">GET IT NOW!</span><span class="price" id="price"></span></button>
     <p class="fine">Payments are handled securely by Xsolla, in your own currency (the final price is shown before you pay).
