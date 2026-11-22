@@ -63,13 +63,13 @@ a:focus-visible, .chip:focus-visible { outline: 3px solid var(--gold); outline-o
 
 .clouds { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 .sky > :not(.clouds) { position: relative; z-index: 1; }
-.clouds img { position: absolute; left: 0; width: 128px; opacity: .9; animation: drift linear infinite; will-change: transform; }
+.clouds img { position: absolute; height: auto; left: 0; width: 168px; opacity: .95; animation: drift linear infinite; will-change: transform; }
 .clouds img:nth-child(1) { top: 10%; animation-duration: 48s; animation-delay: -12s; }
-.clouds img:nth-child(2) { top: 26%; width: 96px; animation-duration: 66s; animation-delay: -40s; opacity: .75; }
-.clouds img:nth-child(3) { top: 6%; width: 160px; animation-duration: 58s; animation-delay: -30s; }
-.clouds img:nth-child(4) { top: 18%; width: 112px; animation-duration: 74s; animation-delay: -60s; opacity: .8; }
-.clouds img:nth-child(5) { top: 34%; width: 80px; animation-duration: 84s; animation-delay: -8s; opacity: .7; }
-@keyframes drift { from { transform: translateX(-200px); } to { transform: translateX(calc(100vw + 40px)); } }
+.clouds img:nth-child(2) { top: 26%; width: 135px; animation-duration: 66s; animation-delay: -40s; opacity: .75; }
+.clouds img:nth-child(3) { top: 6%; width: 210px; animation-duration: 58s; animation-delay: -30s; }
+.clouds img:nth-child(4) { top: 18%; width: 180px; animation-duration: 74s; animation-delay: -60s; opacity: .8; }
+.clouds img:nth-child(5) { top: 34%; width: 126px; animation-duration: 84s; animation-delay: -8s; opacity: .7; }
+@keyframes drift { from { transform: translateX(-260px); } to { transform: translateX(calc(100vw + 40px)); } }
 
 /* the surface: a strip of grass with you and your friends on it */
 .surface { position: relative; height: 300px; margin: 10px -16px 0; }
@@ -157,7 +157,6 @@ a:focus-visible, .chip:focus-visible { outline: 3px solid var(--gold); outline-o
   .surface .props { transform: translateX(-50%) scale(.6); transform-origin: bottom center; }
   .layer { padding: 48px 14px 56px; }
 }
-@media (prefers-reduced-motion: reduce) { .clouds img { animation-duration: 140s; } }      /* (still drifting, just slower) */
 
 /* a scene: real game pieces on a ledge, at 4x (one game pixel = 4 screen pixels) */
 .stage { position: absolute; left: 50%; bottom: 0; width: 512px; height: 400px; transform: translateX(-50%) scale(var(--s, 1)); transform-origin: bottom center; }
