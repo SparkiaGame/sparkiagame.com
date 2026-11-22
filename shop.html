@@ -97,8 +97,12 @@
 
 <script>
 (function () {
+  var q = new URLSearchParams(location.search);
   var API = 'https://play.sparkiagame.com';
-  var code = new URLSearchParams(location.search).get('c') || '';
+  // testing with a server on your own PC: shop.html?api=localhost:8443 (only localhost is allowed)
+  var local = q.get('api') || '';
+  if (/^(localhost|127\.0\.0\.1):\d{2,5}$/.test(local)) API = 'http://' + local;
+  var code = q.get('c') || '';
   var art = {
     sparks_small: 'sparks_small', sparks_medium: 'sparks_medium', sparks_large: 'sparks_large',
     sparks_huge: 'sparks_huge', sparks_mega: 'sparks_mega'
