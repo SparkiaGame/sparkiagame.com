@@ -60,7 +60,6 @@
     background: linear-gradient(#6ce05a, #279233); box-shadow: inset 0 3px 0 rgba(255,255,255,.35); font-size: 20px; -webkit-text-stroke: 4px var(--ink); }
   .fine { margin: 14px 0 0; font-size: 13px; color: #9fc0dc; line-height: 1.5; }
   .note { margin: 18px auto 0; max-width: 30em; color: #cfe6ff; }
-  .test { display: inline-block; margin: 0 0 16px; padding: 6px 14px; border-radius: 10px; background: #ff9f1c; color: var(--ink); font-weight: 700; }
   .done-big { font: 700 34px/1.2 var(--display); color: #8fe05a; -webkit-text-stroke: 6px var(--ink); paint-order: stroke fill; margin: 10px 0; }
   [hidden] { display: none !important; }
 </style>
@@ -79,7 +78,6 @@
 
   <div id="pack" class="card" hidden>
     <div id="timer" class="timer" hidden></div>
-    <div id="sandbox" class="test" hidden>TEST MODE: use Xsolla's test card, no real money</div>
     <div><span id="ribbon" class="ribbon" hidden>LIMITED TIME</span></div>
     <div class="title" id="title"></div>
     <div class="pic"><div class="sprite" id="sprite"></div></div>
@@ -101,6 +99,13 @@
 (function () {
   var API = 'https://play.sparkiagame.com';
   var code = new URLSearchParams(location.search).get('c') || '';
+  // (no answer in 12 seconds: say so instead of loading forever)
+  function get(url) {
+    var ctl = window.AbortController ? new AbortController() : null;
+    var timer = ctl ? setTimeout(function () { ctl.abort(); }, 12000) : null;
+    return fetch(url, ctl ? { cache: 'no-store', signal: ctl.signal } : { cache: 'no-store' })
+      .then(function (r) { if (timer) clearTimeout(timer); return r; }, function (e) { if (timer) clearTimeout(timer); throw e; });
+  }
   var art = {
     sparks_small: 'sparks_small', sparks_medium: 'sparks_medium', sparks_large: 'sparks_large',
     sparks_huge: 'sparks_huge', sparks_mega: 'sparks_mega'
@@ -149,7 +154,7 @@
 
   if (!/^[0-9a-f]{20,80}$/.test(code)) { problem('This page only works from inside Sparkia.'); return; }
 
-  fetch(API + '/shop/pack?c=' + encodeURIComponent(code), { cache: 'no-store' })
+  get(API + '/shop/pack?c=' + encodeURIComponent(code))
     .then(function (r) { return r.json(); })
     .then(function (p) {
       if (!p.ok) { problem(p.error || 'This link has expired.'); return; }
@@ -161,7 +166,6 @@
       $('player').textContent = p.player;
       $('price').textContent = p.price || '';
       $('price').hidden = !p.price;
-      $('sandbox').hidden = !sandbox;
       if (p.limited) {
         $('pack').classList.add('limited');
         $('ribbon').hidden = false;
@@ -178,7 +182,7 @@
   $('buy').addEventListener('click', function () {
     var b = this;
     b.disabled = true; $('buyText').textContent = 'ONE MOMENT...';
-    fetch(API + '/shop/checkout?c=' + encodeURIComponent(code), { cache: 'no-store' })
+    get(API + '/shop/checkout?c=' + encodeURIComponent(code))
       .then(function (r) { return r.json(); })
       .then(function (c) {
         if (!c.ok) { problem(c.error || "The checkout couldn't be opened."); return; }
